@@ -2,7 +2,7 @@
 #include <vector>
 
 
-int findMode(int array, int arraySize);
+int findMode(int array[], int arraySize);
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -15,7 +15,7 @@ int main() {
 
 
 
-int findMode(int inputArray, int arraySize) {
+int findMode(int inputArray[], int arraySize) {
     std::vector<int> storageVect;
     int newValues = 0;
 
