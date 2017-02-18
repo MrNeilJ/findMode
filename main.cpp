@@ -1,3 +1,5 @@
+
+
 #include <iostream>
 #include <vector>
 
@@ -5,14 +7,25 @@
 int findMode(int array[], int arraySize);
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    int testArray[8] = {2, 2, 4, 7, 10, 9, 5, 3};
+    /**************************
+     * TESTS THAT NEED TO PASS
+     **************************/
+
+    // All unique values (one of each)
+    int testArray[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,};
+
+
+    int testArray[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,};
     findMode(testArray, 8);
 
     return 0;
 
 }
 
+int findMode(int inputArray[], int arraySize)
+{
+    // Add a counter for
+}
 
 
 /*
