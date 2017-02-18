@@ -15,6 +15,7 @@ int main() {
 
 
 
+/*
 int findMode(int inputArray[], int arraySize) {
     std::vector<int> storageVect;
     int newValues = 0;
@@ -37,3 +38,5 @@ int findMode(int inputArray[], int arraySize) {
         }
     }
 }
+
+ */
