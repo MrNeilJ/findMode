@@ -35,38 +35,34 @@ int main() {
 
 int findMode(int inputArray[], int arraySize)
 {
-    // Add a counter for values added to numSets
-    int groupCount = 0;
-
-    // Create a vector to hold other vectors
+    int maxFreq     = 0;
 
 
-    // Loop through each value in the array
+
+    // Loop through entire array
     for (int i = 0; i < arraySize; i++)
     {
-        // Create a variable to validate if the value matches a group
-        bool groupExists = false;
+        int currentFreq = 0;
+        int currentVal;
 
-        // Loop counter used for checking group existence
-        int j = 0;
+        // Set the current value we are looking for
+        currentVal = inputArray[i];
 
-        if (numSets.empty())
+        // Loop through rest of remain loop
+        for (int j = i; j < arraySize; j++)
         {
-            numSets.push_back(inputArray[i]);
-            groupCount++;
-        }
-        else
-            while (!groupExists)
+            // Check to see if any other numbers match
+            if (inputArray[j] == currentVal)
             {
-                if (inputArray[i] == numSets[j][0])
-                {
-
-                }
+                // Add to current frequency counter
+                currentFreq++;
             }
-
-
+        }
+        if (currentFreq > maxFreq)
+        {
+            maxFreq = currentFreq;
+        }
     }
-
 }
 
 
