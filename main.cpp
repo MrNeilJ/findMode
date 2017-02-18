@@ -12,11 +12,22 @@ int main() {
      **************************/
 
     // All unique values (one of each)
-    int testArray[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,};
+    int testArrayA[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,};
 
+    // One double value
+    int testArrayB[10] = {1, 2, 3, 4, 1, 6, 7, 8, 9, 10,};
 
-    int testArray[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,};
-    findMode(testArray, 8);
+    // Two triple values
+    int testArrayC[10] = {1, 1, 2, 4, 1, 6, 2, 8, 2, 10,};
+
+    // All double values
+    int testArrayD[10] = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5,};
+
+    // Run the test
+    findMode(testArrayA, 10);
+    findMode(testArrayB, 10);
+    findMode(testArrayC, 10);
+    findMode(testArrayD, 10);
 
     return 0;
 
