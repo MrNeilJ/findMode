@@ -1,10 +1,8 @@
-
-
 #include <iostream>
 #include <vector>
 
 
-int findMode(int array[], int arraySize);
+std::vector<int> findMode(int array[], int arraySize);
 
 int main() {
     /**************************
@@ -24,16 +22,15 @@ int main() {
     int testArrayD[10] = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5,};
 
     // Run the test
-    std::cout << "The Mode for Array A is: " << findMode(testArrayA, 10);
-    std::cout << "The Mode for Array B is: " << findMode(testArrayB, 10);
-    std::cout << "The Mode for Array C is: " << findMode(testArrayC, 10);
-    std::cout << "The Mode for Array D is: " << findMode(testArrayD, 10);
+    std::cout << findMode(testArrayA, 10);
+    findMode(testArrayB, 10);
+
 
     return 0;
 
 }
 
-int findMode(int inputArray[], int arraySize)
+std::vector<int> findMode(int inputArray[], int arraySize)
 {
     int maxFreq = 0;
     std::vector<int> modeVec;
@@ -91,17 +88,19 @@ int findMode(int inputArray[], int arraySize)
                 int k = 0;
                 while (!valExists)
                 {
-                    if (inputArray[i] == modeVec.at(k))
+                    // Make sure that we don't go above bounds
+                    if (k == modeVec.size()) {
+                        modeVec.push_back(inputArray[i]);
+                        valExists = true;
+                    }
+                    else if (inputArray[i] == modeVec.at(k))
                     {
                         valExists = true;
                     }
                     else
                     {
-                        if (k == i) {
-                            modeVec.push_back(inputArray[i]);
-                        } else {
-                            k++;
-                        }
+                        k++;
+
                     }
                 }
             }
@@ -113,6 +112,7 @@ int findMode(int inputArray[], int arraySize)
 
         }
     }
+    return modeVec;
 }
 
 
