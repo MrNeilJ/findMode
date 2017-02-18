@@ -114,30 +114,3 @@ std::vector<int> findMode(int inputArray[], int arraySize)
     }
     return modeVec;
 }
-
-
-/*
-int findMode(int inputArray[], int arraySize) {
-    std::vector<int> storageVect;
-    int newValues = 0;
-
-    for (int i = 0; i < arraySize; i++)
-    {
-        if (storageVect.empty())
-        {
-            storageVect.push_back(inputArray[i]);
-            newValues++;
-        }
-        else
-        {
-            for(i; )
-            for (int j = 0; i < newValues; j++){
-                storageVect.push_back(inputArray[i]);
-                newValues++;
-
-            }
-        }
-    }
-}
-
- */
