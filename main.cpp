@@ -39,13 +39,13 @@ int findMode(int inputArray[], int arraySize)
     int groupCount = 0;
 
     // Create a vector to hold other vectors
-    std::vector<int> numSets;
+
 
     // Loop through each value in the array
     for (int i = 0; i < arraySize; i++)
     {
         // Create a variable to validate if the value matches a group
-        bool groupExists = false
+        bool groupExists = false;
 
         // Loop counter used for checking group existence
         int j = 0;
@@ -57,6 +57,12 @@ int findMode(int inputArray[], int arraySize)
         }
         else
             while (!groupExists)
+            {
+                if (inputArray[i] == numSets[j][0])
+                {
+
+                }
+            }
 
 
     }
