@@ -22,7 +22,10 @@ int main() {
     int testArrayD[10] = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5,};
 
     // Run the test
+    /**
+    ERROR: invalid operands to binary expression ('ostream' (aka 'basic_ostream<char>') and 'std::vector<int>')
     std::cout << findMode(testArrayA, 10);
+     **/
     findMode(testArrayB, 10);
 
 
