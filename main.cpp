@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 
 std::vector<int> findMode(int array[], int arraySize);
@@ -22,11 +23,44 @@ int main() {
     int testArrayD[10] = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5,};
 
     // Run the test
-    /**
-    ERROR: invalid operands to binary expression ('ostream' (aka 'basic_ostream<char>') and 'std::vector<int>')
-    std::cout << findMode(testArrayA, 10);
-     **/
-    std::cout << findMode(testArrayB, 10);
+
+
+    std::vector<int> exampleA = findMode(testArrayA, 10);
+    std::vector<int> exampleB = findMode(testArrayB, 10);
+    std::vector<int> exampleC = findMode(testArrayC, 10);
+    std::vector<int> exampleD = findMode(testArrayD, 10);
+
+    int sizeA = exampleA.size();
+    for(int i = 0; i < sizeA; i++)
+    {
+        std::cout << exampleA[i] << " ";
+    }
+
+    std::cout << "\n";
+
+    int sizeB = exampleB.size();
+    for(int i = 0; i < sizeB; i++)
+    {
+        std::cout << exampleB[i] << " ";
+    }
+
+    std::cout << "\n";
+
+    int sizeC = exampleC.size();
+    for(int i = 0; i < sizeC; i++)
+    {
+        std::cout << exampleC[i] << " ";
+    }
+
+    std::cout << "\n";
+
+    int sizeD = exampleD.size();
+    for(int i = 0; i < sizeD; i++)
+    {
+        std::cout << exampleD[i] << " ";
+    }
+
+    std::cout << "\n";
 
 
     return 0;
@@ -96,7 +130,7 @@ std::vector<int> findMode(int inputArray[], int arraySize)
                         modeVec.push_back(inputArray[i]);
                         valExists = true;
                     }
-                    else if (inputArray[i] == modeVec.at(k))
+                    else if (inputArray[i] == modeVec[k])
                     {
                         valExists = true;
                     }
