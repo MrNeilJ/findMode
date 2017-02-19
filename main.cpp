@@ -63,10 +63,8 @@ std::vector<int> findMode(int inputArray[], int arraySize)
     int maxFreq = 0;
 
     // Temporary array to hold value and frequency
-    int tempArray[1][1];
+    int tempArray[arraySize][2];
 
-    // Temporary vector to hold the array values of each frequency count
-    std::vector<int> tempVec;
     std::vector<int> modeVec;
 
     // Loop through entire array and find the highest frequency
@@ -94,11 +92,24 @@ std::vector<int> findMode(int inputArray[], int arraySize)
         {
             maxFreq = currentFreq;
 
+            tempArray[i][0] = inputArray[i];
+            tempArray[i][1] = currentFreq;
+
         }
     }
 
+    // Loop through entire array again and compare max frequency to other number frequencies
+    for (int i = 0; i < arraySize; i++)
+    {
+        if (tempArray[i][1] == maxFreq)
+        {
+            modeVec.push_back(tempArray[i][0]);
+        }
+    }
 
-
+    // Sort and return the vector value to the function call
+    std::sort(modeVec.begin(), modeVec.end());
+    return modeVec;
 
     /*
 
@@ -153,9 +164,9 @@ std::vector<int> findMode(int inputArray[], int arraySize)
 
         }
     }
-    std::sort(modeVec.begin(), modeVec.end());
-    return modeVec;
+
  */
+
 
 }
 
