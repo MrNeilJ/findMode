@@ -107,11 +107,11 @@ std::vector<int> findMode(int inputArray[], int arraySize)
             // Add first value to the vector
             else
             {
-                std::sort(modeVec.begin(), modeVec.end());
                 modeVec.push_back(inputArray[i]);
             }
 
         }
     }
+    std::sort(modeVec.begin(), modeVec.end());
     return modeVec;
 }
