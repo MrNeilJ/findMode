@@ -4,6 +4,7 @@
 
 
 std::vector<int> findMode(int array[], int arraySize);
+void printMode(int inputArray[], int arraySize);
 
 int main() {
     /**************************
@@ -24,11 +25,18 @@ int main() {
 
     // Run the test
 
+    std::cout << "{1, 2, 3, 4, 5, 6, 7, 8, 9, 10,}" << " Mode = ";
+    printMode(testArrayA, 10);
 
-    std::vector<int> exampleA = findMode(testArrayA, 10);
-    std::vector<int> exampleB = findMode(testArrayB, 10);
-    std::vector<int> exampleC = findMode(testArrayC, 10);
-    std::vector<int> exampleD = findMode(testArrayD, 10);
+    std::cout << "{1, 2, 3, 4, 1, 6, 7, 8, 9, 10,}" << " Mode = ";
+    printMode(testArrayB, 10);
+
+    std::cout << "{1, 1, 2, 4, 1, 6, 2, 8, 2, 10,}" << " Mode = ";
+    printMode(testArrayC, 10);
+
+    std::cout << "{1, 1, 2, 2, 3, 3, 4, 4, 5, 5,}" << "  Mode = ";
+    printMode(testArrayD, 10);
+
 
 
 
