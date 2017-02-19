@@ -1,10 +1,8 @@
-
-
 #include <iostream>
 #include <vector>
 
 
-int findMode(int array[], int arraySize);
+std::vector<int> findMode(int array[], int arraySize);
 
 int main() {
     /**************************
@@ -24,68 +22,96 @@ int main() {
     int testArrayD[10] = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5,};
 
     // Run the test
-    findMode(testArrayA, 10);
+    std::cout << findMode(testArrayA, 10);
     findMode(testArrayB, 10);
-    findMode(testArrayC, 10);
-    findMode(testArrayD, 10);
+
 
     return 0;
 
 }
 
-int findMode(int inputArray[], int arraySize)
+std::vector<int> findMode(int inputArray[], int arraySize)
 {
-    // Add a counter for values added to numSets
-    int groupCount = 0;
+    int maxFreq = 0;
+    std::vector<int> modeVec;
 
-    // Create a vector to hold other vectors
-    std::vector<int> numSets;
-
-    // Loop through each value in the array
+    // Loop through entire array and find the highest frequency
     for (int i = 0; i < arraySize; i++)
     {
-        // Create a variable to validate if the value matches a group
-        bool groupExists = false
+        int currentFreq = 0;
+        int currentVal;
 
-        // Loop counter used for checking group existence
-        int j = 0;
+        // Set the current value we are looking for
+        currentVal = inputArray[i];
 
-        if (numSets.empty())
+        // Loop through rest of remain loop
+        for (int j = i; j < arraySize; j++)
         {
-            numSets.push_back(inputArray[i]);
-            groupCount++;
-        }
-        else
-            while (!groupExists)
-
-
-    }
-
-}
-
-
-/*
-int findMode(int inputArray[], int arraySize) {
-    std::vector<int> storageVect;
-    int newValues = 0;
-
-    for (int i = 0; i < arraySize; i++)
-    {
-        if (storageVect.empty())
-        {
-            storageVect.push_back(inputArray[i]);
-            newValues++;
-        }
-        else
-        {
-            for(i; )
-            for (int j = 0; i < newValues; j++){
-                storageVect.push_back(inputArray[i]);
-                newValues++;
-
+            // Check to see if any other numbers match
+            if (inputArray[j] == currentVal)
+            {
+                // Add to current frequency counter
+                currentFreq++;
             }
         }
+        if (currentFreq > maxFreq)
+        {
+            maxFreq = currentFreq;
+        }
     }
-}
 
- */
+    // Loop through entire array again and compare max frequency to other number frequencies
+    for (int i = 0; i < arraySize; i++)
+    {
+        int currentFreq = 0;
+        int currentVal;
+
+        // Set the current value we are looking for
+        currentVal = inputArray[i];
+
+        // Loop through rest of remain loop
+        for (int j = i; j < arraySize; j++)
+        {
+            // Check to see if any other numbers match
+            if (inputArray[j] == currentVal)
+            {
+                // Add to current frequency counter
+                currentFreq++;
+            }
+        }
+        if (currentFreq == maxFreq)
+        {
+            if (!modeVec.empty())
+            {
+                // Check to make sure the value isn't already stored.
+                bool valExists = false;
+                int k = 0;
+                while (!valExists)
+                {
+                    // Make sure that we don't go above bounds
+                    if (k == modeVec.size()) {
+                        modeVec.push_back(inputArray[i]);
+                        valExists = true;
+                    }
+                    else if (inputArray[i] == modeVec.at(k))
+                    {
+                        valExists = true;
+                    }
+                    else
+                    {
+                        k++;
+
+                    }
+                }
+            }
+            // Add first value to the vector
+            else
+            {
+                std::sort(modeVec.begin(), modeVec.end());
+                modeVec.push_back(inputArray[i]);
+            }
+
+        }
+    }
+    return modeVec;
+}
