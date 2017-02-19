@@ -26,7 +26,7 @@ int main() {
     ERROR: invalid operands to binary expression ('ostream' (aka 'basic_ostream<char>') and 'std::vector<int>')
     std::cout << findMode(testArrayA, 10);
      **/
-    findMode(testArrayB, 10);
+    std::cout << findMode(testArrayB, 10);
 
 
     return 0;
