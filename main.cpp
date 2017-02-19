@@ -30,37 +30,7 @@ int main() {
     std::vector<int> exampleC = findMode(testArrayC, 10);
     std::vector<int> exampleD = findMode(testArrayD, 10);
 
-    int sizeA = exampleA.size();
-    for(int i = 0; i < sizeA; i++)
-    {
-        std::cout << exampleA[i] << " ";
-    }
 
-    std::cout << "\n";
-
-    int sizeB = exampleB.size();
-    for(int i = 0; i < sizeB; i++)
-    {
-        std::cout << exampleB[i] << " ";
-    }
-
-    std::cout << "\n";
-
-    int sizeC = exampleC.size();
-    for(int i = 0; i < sizeC; i++)
-    {
-        std::cout << exampleC[i] << " ";
-    }
-
-    std::cout << "\n";
-
-    int sizeD = exampleD.size();
-    for(int i = 0; i < sizeD; i++)
-    {
-        std::cout << exampleD[i] << " ";
-    }
-
-    std::cout << "\n";
 
 
     return 0;
@@ -151,4 +121,21 @@ std::vector<int> findMode(int inputArray[], int arraySize)
     }
     std::sort(modeVec.begin(), modeVec.end());
     return modeVec;
+}
+
+
+/******************************************************************
+ *
+ *
+ */
+void printMode(int inputArray[], int arraySize)
+{
+    std::vector<int> modeOutput = findMode(inputArray, arraySize);
+
+    for(int i = 0; i < modeOutput.size(); i++)
+    {
+        std::cout << modeOutput[i] << " ";
+    }
+
+    std::cout << std::endl;
 }
