@@ -18,8 +18,6 @@
 **************************************************************/
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 
 std::vector<int> findMode(int array[], int arraySize);
 void printMode(int inputArray[], int arraySize);
@@ -111,64 +109,6 @@ std::vector<int> findMode(int inputArray[], int arraySize)
     // Sort and return the vector value to the function call
     std::sort(modeVec.begin(), modeVec.end());
     return modeVec;
-
-    /*
-
-    // Loop through entire array again and compare max frequency to other number frequencies
-    for (int i = 0; i < arraySize; i++)
-    {
-        int currentFreq = 0;
-        int currentVal;
-
-        // Set the current value we are looking for
-        currentVal = inputArray[i];
-
-        // Loop through rest of remain loop
-        for (int j = i; j < arraySize; j++)
-        {
-            // Check to see if any other numbers match
-            if (inputArray[j] == currentVal)
-            {
-                // Add to current frequency counter
-                currentFreq++;
-            }
-        }
-        if (currentFreq == maxFreq)
-        {
-            if (!modeVec.empty())
-            {
-                // Check to make sure the value isn't already stored.
-                bool valExists = false;
-                int k = 0;
-                while (!valExists)
-                {
-                    // Make sure that we don't go above bounds
-                    if (k == modeVec.size()) {
-                        modeVec.push_back(inputArray[i]);
-                        valExists = true;
-                    }
-                    else if (inputArray[i] == modeVec[k])
-                    {
-                        valExists = true;
-                    }
-                    else
-                    {
-                        k++;
-                    }
-                }
-            }
-            // Add first value to the vector
-            else
-            {
-                modeVec.push_back(inputArray[i]);
-            }
-
-        }
-    }
-
- */
-
-
 }
 
 
