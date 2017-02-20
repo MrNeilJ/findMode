@@ -62,6 +62,7 @@ std::vector<int> findMode(int inputArray[], int arraySize)
 {
     int maxFreq = 0;
 
+
     // Temporary array to hold value and frequency
     int tempArray[arraySize][2];
 
@@ -88,7 +89,7 @@ std::vector<int> findMode(int inputArray[], int arraySize)
             }
         }
         // If the counter is higher than the highest counted number, set it to maxFreq
-        if (currentFreq > maxFreq)
+        if (currentFreq >= maxFreq)
         {
             maxFreq = currentFreq;
 
