@@ -1,15 +1,31 @@
+/**************************************************************
+ * Author: Neil Johnson
+ *
+ * Date: 2.17.2017
+ *
+ * Description: This file hosts a function known as "findMode"
+ * that allows the user to provide an array and the size of
+ * that array and the function will return a vector holding
+ * the mode(s} that the array holds.  In addition to this it
+ * will sort the values from lowest to highest value and will
+ * only show a value once (no repetition).
+ *
+ * There is a secondary function called printMode that allows
+ * the user to print the results of the function findMode to
+ * the console. The user must provide the initial array and
+ * size of the array, just like they did in the findMode
+ * function.
+**************************************************************/
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 
 std::vector<int> findMode(int array[], int arraySize);
 void printMode(int inputArray[], int arraySize);
 
 int main() {
-    /**************************
-     * TESTS THAT NEED TO PASS
-     **************************/
+    /***************************
+     * TESTS THAT NEED TO PASS *
+     ***************************/
 
     // All unique values (one of each)
     int testArrayA[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10,};
@@ -23,8 +39,7 @@ int main() {
     // All double values
     int testArrayD[10] = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5,};
 
-    // Run the test
-
+    // Run the tests using the "printMode" function
     std::cout << "{1, 2, 3, 4, 5, 6, 7, 8, 9, 10,}" << " Mode = ";
     printMode(testArrayA, 10);
 
@@ -37,10 +52,6 @@ int main() {
     std::cout << "{1, 1, 2, 2, 3, 3, 4, 4, 5, 5,}" << "  Mode = ";
     printMode(testArrayD, 10);
 
-
-
-
-
     return 0;
 
 }
@@ -48,6 +59,11 @@ int main() {
 std::vector<int> findMode(int inputArray[], int arraySize)
 {
     int maxFreq = 0;
+
+
+    // Temporary array to hold value and frequency
+    int tempArray[arraySize][2];
+
     std::vector<int> modeVec;
 
     // Loop through entire array and find the highest frequency
@@ -56,86 +72,46 @@ std::vector<int> findMode(int inputArray[], int arraySize)
         int currentFreq = 0;
         int currentVal;
 
-        // Set the current value we are looking for
+        // Set the current value we are looking to count in the array
         currentVal = inputArray[i];
 
-        // Loop through rest of remain loop
+        // Loop through rest of remaining loop
         for (int j = i; j < arraySize; j++)
         {
-            // Check to see if any other numbers match
+            // Check to see if any other numbers match the current value
+            // that we are looking for.
             if (inputArray[j] == currentVal)
             {
                 // Add to current frequency counter
                 currentFreq++;
             }
         }
-        if (currentFreq > maxFreq)
+        // If the counter is higher than the highest counted number, set it to maxFreq
+        if (currentFreq >= maxFreq)
         {
             maxFreq = currentFreq;
+
+            tempArray[i][0] = inputArray[i];
+            tempArray[i][1] = currentFreq;
+
         }
     }
 
     // Loop through entire array again and compare max frequency to other number frequencies
     for (int i = 0; i < arraySize; i++)
     {
-        int currentFreq = 0;
-        int currentVal;
-
-        // Set the current value we are looking for
-        currentVal = inputArray[i];
-
-        // Loop through rest of remain loop
-        for (int j = i; j < arraySize; j++)
+        if (tempArray[i][1] == maxFreq)
         {
-            // Check to see if any other numbers match
-            if (inputArray[j] == currentVal)
-            {
-                // Add to current frequency counter
-                currentFreq++;
-            }
-        }
-        if (currentFreq == maxFreq)
-        {
-            if (!modeVec.empty())
-            {
-                // Check to make sure the value isn't already stored.
-                bool valExists = false;
-                int k = 0;
-                while (!valExists)
-                {
-                    // Make sure that we don't go above bounds
-                    if (k == modeVec.size()) {
-                        modeVec.push_back(inputArray[i]);
-                        valExists = true;
-                    }
-                    else if (inputArray[i] == modeVec[k])
-                    {
-                        valExists = true;
-                    }
-                    else
-                    {
-                        k++;
-
-                    }
-                }
-            }
-            // Add first value to the vector
-            else
-            {
-                modeVec.push_back(inputArray[i]);
-            }
-
+            modeVec.push_back(tempArray[i][0]);
         }
     }
+
+    // Sort and return the vector value to the function call
     std::sort(modeVec.begin(), modeVec.end());
     return modeVec;
 }
 
 
-/******************************************************************
- *
- *
- */
 void printMode(int inputArray[], int arraySize)
 {
     std::vector<int> modeOutput = findMode(inputArray, arraySize);
