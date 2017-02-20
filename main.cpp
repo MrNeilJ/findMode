@@ -66,6 +66,35 @@ std::vector<int> findMode(int inputArray[], int arraySize)
 
     std::vector<int> modeVec;
 
+    // Values to store the min and max values in the array
+    double maxVal = -1;
+    double minVal = 1e10;
+
+    // Loop through the array and find the highest and lowest frequency
+    for (int i = 0; i < arraySize; i++)
+    {
+        int currentFreq = 0;
+        int currentVal;
+
+        // Check to see if the current value is larger than maxVal or smaller than minVal
+        if (tempArray[i] > maxVal)
+        {
+            // Set maxVal to the current value
+            maxVal = tempArray[i];
+        }
+        else if (tempArray < minVal)
+        {
+            minVal = tempArray[i];
+        }
+    }
+
+    // Loop through the array and compare see if a there is that value, if so, add to counter
+    for (int i = minVal; i <= maxVal; i++)
+    {
+
+    }
+
+    /*
     // Loop through entire array and find the highest frequency
     for (int i = 0; i < arraySize; i++)
     {
@@ -96,6 +125,7 @@ std::vector<int> findMode(int inputArray[], int arraySize)
 
         }
     }
+     */
 
     // Loop through entire array again and compare max frequency to other number frequencies
     for (int i = 0; i < arraySize; i++)
