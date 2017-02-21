@@ -58,6 +58,7 @@ int main() {
 
 std::vector<int> findMode(int inputArray[], int arraySize)
 {
+
     int maxFreq = 0;
 
     // Temporary array to hold value and frequency
@@ -95,7 +96,6 @@ std::vector<int> findMode(int inputArray[], int arraySize)
         }
     }
 
-
     // Loop through entire array again and compare max frequency to other number frequencies
     for (int i = 0; i < arraySize; i++)
     {
@@ -109,6 +109,7 @@ std::vector<int> findMode(int inputArray[], int arraySize)
     std::sort(modeVec.begin(), modeVec.end());
     return modeVec;
 }
+
 
 
 void printMode(int inputArray[], int arraySize)
