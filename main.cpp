@@ -18,6 +18,7 @@
 **************************************************************/
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 std::vector<int> findMode(int array[], int arraySize);
 void printMode(int inputArray[], int arraySize);
