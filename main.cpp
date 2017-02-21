@@ -56,14 +56,24 @@ int main() {
 
 }
 
+/**************************************************************
+ *                      findMode
+ *  Description: This function takes in two parameters (an array,
+ *  and array size).  The function will then scan through and
+ *  find the highest frequency inside of the array and return
+ *  any values matching that frequency, and it will only show
+ *  one of each value, no duplicates
+ **************************************************************/
+
 std::vector<int> findMode(int inputArray[], int arraySize)
 {
-
+    // Variable used to hold the highest frequency in the array
     int maxFreq = 0;
 
     // Temporary array to hold value and frequency
     int tempArray[arraySize][2];
 
+    // Vector used to hold the array values that match the highest frequency
     std::vector<int> modeVec;
 
     // Loop through entire array and find the highest frequency
@@ -91,6 +101,7 @@ std::vector<int> findMode(int inputArray[], int arraySize)
         {
             maxFreq = currentFreq;
 
+            // Save the frequency value and store the number and frequency value in an array.
             tempArray[i][0] = inputArray[i];
             tempArray[i][1] = currentFreq;
         }
