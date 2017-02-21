@@ -58,8 +58,8 @@ int main() {
 
 std::vector<int> findMode(int inputArray[], int arraySize)
 {
-    int maxFreq = 0;
 
+    int maxFreq = 0;
 
     // Temporary array to hold value and frequency
     int tempArray[arraySize][2];
@@ -93,7 +93,6 @@ std::vector<int> findMode(int inputArray[], int arraySize)
 
             tempArray[i][0] = inputArray[i];
             tempArray[i][1] = currentFreq;
-
         }
     }
 
@@ -112,6 +111,7 @@ std::vector<int> findMode(int inputArray[], int arraySize)
 }
 
 
+
 void printMode(int inputArray[], int arraySize)
 {
     std::vector<int> modeOutput = findMode(inputArray, arraySize);
@@ -120,6 +120,5 @@ void printMode(int inputArray[], int arraySize)
     {
         std::cout << modeOutput[i] << " ";
     }
-
     std::cout << std::endl;
 }
