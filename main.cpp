@@ -121,7 +121,12 @@ std::vector<int> findMode(int inputArray[], int arraySize)
     return modeVec;
 }
 
-
+/**************************************************************
+ *                      printMode
+ *  Description: This function is used to print out the vector
+ *  values in an easy to read format.  It takes in an array and
+ *  the size of the array as its parameters.
+ **************************************************************/
 
 void printMode(int inputArray[], int arraySize)
 {
